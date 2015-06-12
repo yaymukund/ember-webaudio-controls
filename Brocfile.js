@@ -12,14 +12,5 @@ var EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 */
 
 var app = new EmberAddon();
-app.import('bower_components/webaudio-player/dist/webaudio-player.js', {
-  exports: {
-    'webaudio-player/cache': ['default'],
-    'webaudio-player/controls': ['default'],
-    'webaudio-player/player': ['default'],
-    'webaudio-player/request': ['fetch'],
-    'webaudio-player/settings': ['libs', 'configure']
-  }
-});
 
 module.exports = app.toTree();

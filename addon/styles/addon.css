@@ -1,0 +1,38 @@
+.webaudio-controls {
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: white;
+  padding: 2px 10px;
+  background-color: #000;
+}
+.webaudio-controls p {
+  align-self: baseline;
+  margin: 4px;
+}
+
+.webaudio-controls a.octicon-playback-play,
+.webaudio-controls a.octicon-playback-pause {
+  border-right: 1px solid #4b696f;
+  padding-right: 10px;
+}
+
+.webaudio-controls progress[value] {
+  -webkit-appearance: none;
+  width: 80%;
+  height: 10px;
+}
+
+.webaudio-controls progress[value]::-webkit-progress-bar {
+  border-radius: 2px;
+  background: linear-gradient(rgba(44,124,145,.8),rgba(78,183,212,.8));
+}
+
+.webaudio-controls progress[value]::-webkit-progress-value {
+  border-radius: 2px;
+  padding: 1px;
+  background: linear-gradient(rgba(255,255,255,.9),rgba(200,200,200,.8))
+}

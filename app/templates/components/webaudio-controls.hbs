@@ -1,5 +1,9 @@
 {{#if isPaused}}
-  <a {{action "unpause"}}>&#9658;</a>
+  <a {{action "unpause"}} class="octicon octicon-playback-play"></a>
 {{else}}
-  <a {{action "pause"}}>&#9616; &#9616;</a>
+  <a {{action "pause"}} class="octicon octicon-playback-pause"></a>
 {{/if}}
+
+<p class="current-time">{{formattedSeconds}}</p>
+<progress max="{{duration}}" value="{{seconds}}"></progress>
+<p class="duration">{{formattedDuration}}</p>
