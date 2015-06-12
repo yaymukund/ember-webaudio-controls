@@ -1,4 +1,4 @@
-# Ember-webaudio-player
+# Ember-webaudio-controls
 
 This README outlines the details of collaborating on this Ember addon.
 

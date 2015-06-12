@@ -2,5 +2,5 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-webaudio-player'
+  name: 'ember-webaudio-controls'
 };
