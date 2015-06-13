@@ -30,9 +30,18 @@ let _formatTime = function(s) {
 export default Ember.Component.extend({
   classNames: ['webaudio-controls'],
   player: null,
-  isPaused: false,
   seconds: null,
   duration: null,
+
+  isPaused: Ember.computed(function() {
+    return this.get('player').isPaused();
+  }).volatile(),
+
+  volume: Ember.computed(function() {
+    return this.get('player').getVolume();
+  }).volatile(),
+
+  isMuted: Ember.computed.equal('volume', 0),
 
   formattedSeconds: Ember.computed('seconds', function() {
     return _formatTime(this.get('seconds'));
@@ -70,17 +79,25 @@ export default Ember.Component.extend({
 
   actions: {
     unpause: function() {
-      this.get('player').resume();
-      this.set('isPaused', false);
+      this.get('player').unpause();
+      this.notifyPropertyChange('isPaused');
     },
 
     pause: function() {
       this.get('player').pause();
-      this.set('isPaused', true);
+      this.notifyPropertyChange('isPaused');
     },
 
-    mute: () => {},
-    unmute: () => {},
+    mute: function() {
+      this.get('player').mute();
+      this.notifyPropertyChange('isMuted');
+    },
+
+    unmute: function() {
+      this.get('player').unmute();
+      this.notifyPropertyChange('isMuted');
+    },
+
     setVolume: (volume) => { console.log(volume); }
   }
 });
