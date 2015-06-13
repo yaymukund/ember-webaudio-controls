@@ -14,6 +14,14 @@
   margin: 4px;
 }
 
+.webaudio-controls progress.seek-bar[value] {
+  width: 55%;
+}
+
+.webaudio-controls progress.volume[value] {
+  width: 10%;
+}
+
 .webaudio-controls a.octicon-playback-play,
 .webaudio-controls a.octicon-playback-pause {
   border-right: 1px solid #4b696f;
@@ -22,7 +30,6 @@
 
 .webaudio-controls progress[value] {
   -webkit-appearance: none;
-  width: 80%;
   height: 10px;
 }
 

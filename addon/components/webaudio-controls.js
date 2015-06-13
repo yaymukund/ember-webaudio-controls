@@ -67,9 +67,15 @@ export default Ember.Component.extend({
   }),
 
   _bindSeekHandler: Ember.on('didInsertElement', function() {
-    this.$('progress').on('click', e => {
+    this.$('progress.seek-bar').on('click', e => {
       let percent = _getPercentClicked(e);
       this.seek(percent);
+    });
+
+    this.$('progress.volume').on('click', e => {
+      let percent = _getPercentClicked(e);
+      this.get('player').setVolume(percent);
+      this.notifyPropertyChange('volume');
     });
   }),
 
@@ -96,8 +102,6 @@ export default Ember.Component.extend({
     unmute: function() {
       this.get('player').unmute();
       this.notifyPropertyChange('isMuted');
-    },
-
-    setVolume: (volume) => { console.log(volume); }
+    }
   }
 });
