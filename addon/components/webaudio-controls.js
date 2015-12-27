@@ -73,7 +73,7 @@ export default Ember.Component.extend({
 
   actions: {
     seek(event) {
-      let percent = _getPercentClicked(e);
+      let percent = _getPercentClicked(event);
       this.seek(percent);
     },
 
