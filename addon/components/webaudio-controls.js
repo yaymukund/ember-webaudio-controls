@@ -11,6 +11,7 @@ import Ember from 'ember';
 //         |
 //
 // `_getPercentClicked(e)` would return 0.5;
+//
 let _getPercentClicked = function(e) {
   return (e.pageX - e.target.offsetLeft) / e.target.offsetWidth;
 };
@@ -66,40 +67,45 @@ export default Ember.Component.extend({
     Ember.run.later(this, 'poll', 200);
   }),
 
-  _bindSeekHandler: Ember.on('didInsertElement', function() {
-    this.$('progress.seek-bar').on('click', e => {
-      let percent = _getPercentClicked(e);
-      this.seek(percent);
-    });
-
-    this.$('progress.volume').on('click', e => {
-      let percent = _getPercentClicked(e);
-      this.get('player').setVolume(percent);
-      this.notifyPropertyChange('volume');
-    });
-  }),
-
-  seek: function(percent) {
+  seek(percent) {
     this.get('player').seekToPercent(percent);
   },
 
   actions: {
-    unpause: function() {
+    seek(event) {
+      let percent = _getPercentClicked(e);
+      this.seek(percent);
+    },
+
+    setVolume(event) {
+      let percent = _getPercentClicked(event);
+
+      if (percent > 0.9) {
+        percent = 1;
+      } else if (percent < 0.1) {
+        percent = 0;
+      }
+
+      this.get('player').setVolume(percent);
+      this.notifyPropertyChange('volume');
+    },
+
+    unpause() {
       this.get('player').unpause();
       this.notifyPropertyChange('isPaused');
     },
 
-    pause: function() {
+    pause() {
       this.get('player').pause();
       this.notifyPropertyChange('isPaused');
     },
 
-    mute: function() {
+    mute() {
       this.get('player').mute();
       this.notifyPropertyChange('isMuted');
     },
 
-    unmute: function() {
+    unmute() {
       this.get('player').unmute();
       this.notifyPropertyChange('isMuted');
     }

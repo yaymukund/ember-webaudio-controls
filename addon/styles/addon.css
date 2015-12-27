@@ -9,6 +9,11 @@
   padding: 2px 10px;
   background-color: #000;
 }
+
+.webaudio-controls a, .webaudio-controls progress {
+  cursor: pointer;
+}
+
 .webaudio-controls p {
   margin: 4px;
 }

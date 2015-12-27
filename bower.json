@@ -12,7 +12,7 @@
     "jquery": "^1.11.1",
     "loader.js": "ember-cli/loader.js#3.2.0",
     "qunit": "~1.17.1",
-    "webaudio-player": "yaymukund/webaudio-player#0.0.9",
+    "webaudio-player": "yaymukund/webaudio-player#1.2.0",
     "octicons": "~2.4.1"
   }
 }

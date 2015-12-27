@@ -5,7 +5,10 @@
 {{/if}}
 
 <p class="current-time">{{formattedSeconds}}</p>
-<progress class="seek-bar" max="{{duration}}" value="{{seconds}}"></progress>
+<progress class="seek-bar"
+          onclick={{action 'seek'}}
+          max="{{duration}}"
+          value="{{seconds}}"></progress>
 
 {{#if isMuted}}
   <a {{action "unmute"}} class="octicon octicon-mute"></a>
@@ -13,6 +16,9 @@
   <a {{action "mute"}} class="octicon octicon-unmute"></a>
 {{/if}}
 
-<progress class="volume" max="1" value="{{volume}}"></progress>
+<progress class="volume"
+          onclick={{action 'setVolume'}}
+          max="1"
+          value="{{volume}}"></progress>
 
 <p class="duration">{{formattedDuration}}</p>
